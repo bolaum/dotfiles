@@ -6,15 +6,11 @@ POWERLINE_RUBY_CHAR=" "
 #POWERLINE_PROMPT="user_info scm python_venv cwd"
 
 # Path to the bash it configuration
-export BASH_IT="/home/bolaum/.bash_it"
+export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-#export BASH_IT_THEME='powerline-multiline'
-#export BASH_IT_THEME='powerline'
-#export BASH_IT_THEME='powerline-naked'
 export BASH_IT_THEME='pl-multiline'
-
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -34,6 +30,9 @@ export TODO="t"
 
 # Set this to false to turn off version control status checking within the prompt for all themes
 export SCM_CHECK=true
+
+# set local bin to PATH
+export PATH="$HOME/bin:$PATH"
 
 # Set Xterm/screen/Tmux title with only a short hostname.
 # Uncomment this (or set SHORT_HOSTNAME to something else),
@@ -60,21 +59,14 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-# rvm settings
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # test if the prompt var is not set
 if [ -z "$PS1" ]; then
     # prompt var is not set, so this is *not* an interactive shell
     exit
 fi
 
-# fix dircolors
-#eval $(dircolors -b $HOME/.dircolors)
+# add bash_colors
+source .bash_colors/bash_colors.sh
 
 # aliases
 alias la='ls -la --color'
@@ -83,5 +75,3 @@ unalias q
 # Bash history size
 export HISTFILESIZE=50000
 export HISTSIZE=50000
-
-rvm gemset use chattered
