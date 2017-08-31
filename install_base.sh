@@ -14,6 +14,11 @@ RUBY_VERSIONS="2.4.1"
 # exit on error
 set -e
 
+# clone bash_colors
+echo "Clonning .bash_colors..."
+git clone https://github.com/mercurio21/bash_colors.git .bash_colors
+source .bash_colors/bash_colors.sh
+
 # update and install base packages
 clr_bold clr_cyan "Installing base packages..."
 sudo apt-get update
@@ -28,10 +33,6 @@ ln -s bash-it-themes/ .bash_it/custom/themes
 clr_bold clr_cyan "Clonning .tmux..."
 git clone https://github.com/gpakosz/.tmux.git .tmux
 ln -s -f .tmux/.tmux.conf
-
-# clone bash_colors
-clr_bold clr_cyan "Clonning .bash_colors..."
-git clone https://github.com/mercurio21/bash_colors.git .bash_colors
 
 # install pyenv
 clr_bold clr_cyan "Installing pyenv..."
