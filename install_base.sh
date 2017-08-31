@@ -8,6 +8,9 @@ ALL_PKGS="$APT_BASE_PKGS $PYTHON_BUILD_PKGS"
 # config files to copy
 CONFIG_FILES=".bashrc .gitconfig .tmux.conf.local .vimrc"
 
+# default dirs
+DEFAULT_DIRS="tmp projs github downloads"
+
 # python versions to be installed
 PYTHON_VERSIONS="2.7.13 3.6.2"
 
@@ -65,7 +68,7 @@ bash-it enable plugin base alias-completion tmux git subversion pyenv node rvm r
 
 # create default dirs
 clr_bold clr_cyan "Creating default dirs..."
-mkdir -p $HOME/{tmp,projs,downloads}
+echo $DEFAULT_DIRS | xargs -n 1 mkdir -p || exit
 
 # install python, set first version as default and install basic packages
 clr_bold clr_cyan "Installing python..."
