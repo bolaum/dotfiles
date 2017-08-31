@@ -51,14 +51,12 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 # install bash-it
 $HOME/.bash_it/install.sh -s
 clr_bold clr_cyan "Sourcing .bashrc..."
-source $HOME/.bash_rc
-bash-it show
+source $HOME/.bashrc
 
 # copy config files
-cp -a bash-it-themes $HOME/.bash-it-themes || true
-echo ln -s $HOME/.bash-it-themes $HOME/.bash_it/custom/themes
+cp -a bash-it-themes $HOME/.bash-it-themes
 ln -s $HOME/.bash-it-themes $HOME/.bash_it/custom/themes
-cp -a bin/ $HOME || true
+cp -a bin/ $HOME
 cp -a $CONFIG_FILES $HOME
 
 # enable bash-it plugins
@@ -71,13 +69,16 @@ mkdir -p $HOME/{tmp,projs,downloads}
 
 # install python, set first version as default and install basic packages
 clr_bold clr_cyan "Installing python..."
-echo $PYTHON_VERSIONS | xargs -n 1 pyenv install -k
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+echo $PYTHON_VERSIONS | xargs -n 1 pyenv install -k || exit
 pyenv global $(echo $PYTHON_VERSIONS | awk '{print $1;}')
 pip install ipython
 
 # install ruby and set first version as default
 clr_bold clr_cyan "Installing ruby..."
-echo $RUBY_VERSIONS | xargs -n 1 rvm install
+source $HOME/.rvm/scripts/rvm
+echo $RUBY_VERSIONS | xargs -n 1 rvm install || exit
 rvm --default use $(echo $RUBY_VERSIONS | awk '{print $1;}')
 
 # download fonts
