@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_BASE_PKGS="awk vim tmux build-essential curl wget git subversion"
+APT_BASE_PKGS="awk vim tmux build-essential curl wget git subversion samba"
 PYTHON_BUILD_PKGS="libncursesw5-dev libreadline-dev libssl-dev libgdbm-dev libc6-dev libsqlite3-dev tk-dev libbz2-dev"
 # packages to be instaled
 ALL_PKGS="$APT_BASE_PKGS $PYTHON_BUILD_PKGS"
@@ -81,6 +81,22 @@ Instalation done!
 Please do the following manually:
   - Install nerd fonts in tmp/ to terminal emulator
   - Add ssh key to github
+
+For VMs:
+    - Add samba password
+      $ smbpasswd
+    - Add the following to '/etc/samba/smb.conf' to share home via samba
+
+[vmhome]
+    path = $HOME
+    valid users = $USER
+    read only = no
+    create mask = 664
+    directory mask = 2755
+    map archive = no
+
+    - restart samba:
+      $ sudo service smbd restart
 
 These will test for high color support in terminal:
 "
