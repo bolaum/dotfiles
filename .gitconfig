@@ -1,0 +1,10 @@
+[user]
+        email = bolaum@gmail.com
+        name = Thiago Borges Abdnur
+[core]
+        editor = vim
+[alias]
+        st = status
+	co = checkout
+[push]
+	default = simple
