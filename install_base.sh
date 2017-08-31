@@ -116,6 +116,7 @@ while read -r line; do
   clr_escape "$line" $CLR_BOLD $CLR_CYAN
 done <<< "$END_MESSAGE"
 
+export PATH="$HOME/bin:$PATH"
 24-bit-color.sh
 echo
 testtruecolor.sh
