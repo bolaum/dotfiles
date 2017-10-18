@@ -59,14 +59,8 @@ export PATH="$HOME/bin:$PATH"
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-# test if the prompt var is not set
-if [ -z "$PS1" ]; then
-    # prompt var is not set, so this is *not* an interactive shell
-    exit
-fi
-
 # add bash_colors
-source .bash_colors/bash_colors.sh
+source $HOME/.bash_colors/bash_colors.sh
 
 # aliases
 alias la='ls -la --color'
