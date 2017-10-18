@@ -29,8 +29,8 @@ RVM_THEME_PROMPT_SUFFIX=""
 RBENV_THEME_PROMPT_PREFIX=""
 RBENV_THEME_PROMPT_SUFFIX=""
 RUBY_THEME_PROMPT_COLOR=161
-#RUBY_CHAR=${POWERLINE_RUBY_CHAR:="❲r❳ "}
-RUBY_CHAR=""
+RUBY_CHAR=${POWERLINE_RUBY_CHAR:="❲r❳ "}
+# RUBY_CHAR=""
 
 CWD_THEME_PROMPT_COLOR=240
 
@@ -52,6 +52,6 @@ POWERLINE_LEFT_PROMPT=${POWERLINE_LEFT_PROMPT:="scm python_venv ruby cwd"}
 POWERLINE_RIGHT_PROMPT=${POWERLINE_RIGHT_PROMPT:="in_vim clock battery user_info"}
 
 HISTCONTROL=ignoredups:erasedups
-shopt -s histappend
+# shopt -s histappend
 
 safe_append_prompt_command __powerline_prompt_command

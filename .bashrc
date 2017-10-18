@@ -2,8 +2,8 @@
 
 [ -z "$PS1" ] && return
 
-POWERLINE_RUBY_CHAR=" "
-#POWERLINE_PROMPT="user_info scm python_venv cwd"
+# POWERLINE_RUBY_CHAR=" "
+# POWERLINE_PROMPT="user_info scm python_venv cwd"
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"

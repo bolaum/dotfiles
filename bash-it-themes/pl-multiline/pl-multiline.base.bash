@@ -53,10 +53,10 @@ function __powerline_prompt_command {
     LEFT_PROMPT+="\033[${RIGHT_PROMPT_LENGTH}D"
   fi
 
-  history -n
-  history -w
-  history -c
-  history -r
+  # history -n
+  # history -w
+  # history -c
+  # history -r
 
   PS1="${LEFT_PROMPT}${RIGHT_PROMPT}\n$(__powerline_last_status_prompt ${last_status})${PROMPT_CHAR} "
 
