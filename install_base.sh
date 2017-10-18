@@ -68,7 +68,9 @@ bash-it enable plugin base alias-completion tmux git subversion pyenv node rvm r
 
 # create default dirs
 clr_bold clr_cyan "Creating default dirs..."
+cd $HOME
 echo $DEFAULT_DIRS | xargs -n 1 mkdir -p || exit
+cd -
 
 # install python, set first version as default and install basic packages
 clr_bold clr_cyan "Installing python..."
